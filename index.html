@@ -150,7 +150,11 @@ svg2.append("g")
 svg2.append("g")
       .call(d3.axisLeft(yScale));
 
-
+var tooltip = d3.select("#scene3")
+          .append("div")
+            .style("position","absolute")
+            .style("visibility","hidden")
+            .text("I'm a circle!");
 svg3.selectAll(".dot")
       .data(data)
       .enter().append("circle")
