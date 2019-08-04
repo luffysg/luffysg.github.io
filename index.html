@@ -112,7 +112,8 @@ svg1.append("g")
 svg1.append("g")
       .call(d3.axisLeft(yScale));
 
-var fuel_size =  {Diesel:4, Electricity:6,Gasoline:8}
+//var fuel_size =  {Diesel:4, Electricity:6,Gasoline:8}
+var fuel_size = d3.scaleOrdinal().domain(["Diesel","Electricity","Gasoline"]).range([4,6,8])
 //domain(["Diesel","Electricity","Gasoline"]);
 //scene 2
 svg2.selectAll(".dot")
@@ -121,7 +122,7 @@ svg2.selectAll(".dot")
       .attr("class", "dot")
       .attr("cx", function(d) { return xScale(d.AverageCityMPG); })
       .attr("cy", function(d) { return yScale(d.AverageHighwayMPG); })
-      .attr("r", function(d) {return fuel_size[d.Fuel]; })
+      .attr("r", function(d) {return fuel_size(d.Fuel); })
       .attr("stroke-width", 1)
       .attr("stroke", "black")
       .style("fill","lightblue");
