@@ -113,7 +113,7 @@ svg1.append("g")
       .call(d3.axisLeft(yScale));
 
 //var fuel_size =  {Diesel:4, Electricity:6,Gasoline:8}
-var fuel_size = d3.scaleOrdinal().domain(["Diesel","Electricity","Gasoline"]).range([4,6,8])
+var fuel_size = d3.scaleOrdinal().domain(["Diesel","Electricity","Gasoline"]).range([8,12,16]);
 //domain(["Diesel","Electricity","Gasoline"]);
 //scene 2
 svg2.selectAll(".dot")
