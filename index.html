@@ -125,7 +125,11 @@ svg2.selectAll(".dot")
       .attr("r", 4)
       .attr("stroke-width", 1)
       .attr("stroke", "black")
-      .style("fill",function(d) {if (d.Fuel == "Diesel"){return "orange"} elif (d.Fuel =="Electricity"){return "green"} else {return "red"}});
+      .style("fill",function(d) {
+        if (d.Fuel == "Diesel"){return "orange"} 
+        else if (d.Fuel =="Electricity"){return "green"} 
+        else {return "red"}
+        });
 svg2.append("g")
       .attr("transform", "translate(0," + height + ")")
       .call(d3.axisBottom(xScale).ticks(5,d3.format("0.1s")));
