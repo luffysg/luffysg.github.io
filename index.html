@@ -107,7 +107,7 @@ svg1.selectAll(".dot")
       .attr("r", function(d){return 4+d.EngineCylinders;})
       .attr("stroke-width", 1)
       .attr("stroke", "black")
-      .style("fill","lightblue");
+      .style("fill","lightblue")
       .on("mouseover", function(d) {
         d3.selectAll('.dot')
             .filter(function(dot){
