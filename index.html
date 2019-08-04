@@ -113,7 +113,7 @@ svg1.append("g")
       .call(d3.axisLeft(yScale));
 
 //var fuel_size =  {Diesel:4, Electricity:6,Gasoline:8}
-var fuel_size = d3.scaleOrdinal().domain(["Diesel","Electricity","Gasoline"]).range([8,12,16]);
+//var fuel_size = d3.scaleOrdinal().domain(["Diesel","Electricity","Gasoline"]).range([8,12,16]);
 //domain(["Diesel","Electricity","Gasoline"]);
 //scene 2
 svg2.selectAll(".dot")
@@ -122,10 +122,10 @@ svg2.selectAll(".dot")
       .attr("class", "dot")
       .attr("cx", function(d) { return xScale(d.AverageCityMPG); })
       .attr("cy", function(d) { return yScale(d.AverageHighwayMPG); })
-      .attr("r", function(d) {return fuel_size(d.Fuel); })
+      .attr("r", 4)
       .attr("stroke-width", 1)
       .attr("stroke", "black")
-      .style("fill","lightblue");
+      .style("fill",function(d) {if (d.Fuel == "Diesel"){return "orange"} elif (d.Fuel =="Electricity"){return "green"} else {return "red"}});
 svg2.append("g")
       .attr("transform", "translate(0," + height + ")")
       .call(d3.axisBottom(xScale).ticks(5,d3.format("0.1s")));
