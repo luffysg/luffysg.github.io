@@ -54,8 +54,8 @@
 <script>
 // set margins for svgs
 var margin = {top: 30, right: 30, bottom: 30, left: 30},
-    width = 960 - margin.left - margin.right,
-    height = 960 - margin.top - margin.bottom;
+    width = 500 - margin.left - margin.right,
+    height = 500 - margin.top - margin.bottom;
 
 
 //scene 1 is the Avg HW MPG vs Avg City MPG by engine cylinders
@@ -94,8 +94,8 @@ d3.csv("https://flunky.github.io/cars2017.csv", function(error, data) {
   
 
 //scale data
-var xScale = d3.scaleLinear().domain([10,150]).range([0, width]);
-var yScale = d3.scaleLinear().domain([10,150]).range([height, 0]);
+var xScale = d3.scaleLog().domain([10,150]).range([0, width]);
+var yScale = d3.scaleLog().domain([10,130]).range([height, 0]);
 
 //scene 1
 svg1.selectAll(".dot")
