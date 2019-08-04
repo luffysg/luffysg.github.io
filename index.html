@@ -108,6 +108,23 @@ svg1.selectAll(".dot")
       .attr("stroke-width", 1)
       .attr("stroke", "black")
       .style("fill","lightblue");
+      .on("mouseover", function(d) {
+        d3.selectAll('.dot')
+            .filter(function(dot){
+                return (dot.EngineCylinders != d.EngineCylinders)
+            })
+            .transition()
+            .style("opacity",0.01)
+      })
+      .on("mouseout",function(d){
+          d3.selectAll('.dot'){
+              filter(function(dot){
+                  return (dot.EngineCylinders != d.EngineCylinders)
+              })
+              .transition()
+              .style("opacity",1)
+          }
+      });
 svg1.append("g")
       .attr("transform", "translate(0," + height + ")")
       .call(d3.axisBottom(xScale).ticks(5,d3.format("0.1s")));
