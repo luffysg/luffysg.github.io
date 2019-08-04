@@ -126,6 +126,7 @@ svg2.selectAll(".dot")
       .attr("stroke-width", 1)
       .attr("stroke", "black")
       .style("fill",function(d) {
+        console.log(d.Fuel)
         if (d.Fuel == "Diesel"){return "orange"} 
         else if (d.Fuel =="Electricity"){return "green"} 
         else {return "red"}
