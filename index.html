@@ -112,7 +112,7 @@ svg1.append("g")
 svg1.append("g")
       .call(d3.axisLeft(yScale));
 
-var fuel_col = d3.scaleOrdinal().domain(["Diesel","Electricity","Gasoline"]).range(["#FF0000","#009933","#0000FF"])
+var fuel_col = d3.scaleOrdinal().domain(["Diesel","Electricity","Gasoline"]).range(["black","orange","black"])
 //scene 2
 svg2.selectAll(".dot")
       .data(data)
