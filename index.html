@@ -176,7 +176,8 @@ svg3.selectAll(".dot")
             .style("opacity",0.01)
       })
       .on("mouseout",function(d){
-          d3.selectAll('.dot')
+        d3.select("#tooltip").classed("hidden",true);  
+        d3.selectAll('.dot')
               .filter(function(dot){
                   return (dot.EngineCylinders != d.EngineCylinders)
               })
