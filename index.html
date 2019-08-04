@@ -27,6 +27,12 @@
             And the circle size represents number of engine cylinders: 0,2,3,4,6,8,10,12 </p>
         <br/>
         <h3>Average highway MPG vs. average city MPG by number of engine cyclinders</h3>
+        <div class = "annotation">
+            <h4> Annote blah
+
+            </h4> 
+
+        </div>
         <svg id="scene1">
         </svg>
 </div>
@@ -150,11 +156,11 @@ svg2.append("g")
 svg2.append("g")
       .call(d3.axisLeft(yScale));
 
-var tooltip = d3.select("#scene3")
+/* var tooltip = d3.select("#scene3")
           .append("div")
             .style("position","absolute")
             .style("visibility","hidden")
-            .text("I'm a circle!");
+            .text("I'm a circle!"); */
 svg3.selectAll(".dot")
       .data(data)
       .enter().append("circle")
@@ -166,11 +172,11 @@ svg3.selectAll(".dot")
       .attr("stroke", "black")
       .style("fill",function(d) { return fuel_color(d.Fuel);   })
       .on("mouseover", function(d) {
-        d3.select("#tooltip")
+        /* d3.select("#tooltip")
             .style("top",(d3.event.pageY) +20+"px")
             .style("left",(d3.event.pageX) +20 +"px")
             .select('#Make').text(d.Make);
-        d3.select("#tooltip").classed("hidden", false);
+        d3.select("#tooltip").classed("hidden", false); */
         
         d3.selectAll('.dot')
             .filter(function(dot){
@@ -180,7 +186,7 @@ svg3.selectAll(".dot")
             .style("opacity",0.01)
       })
       .on("mouseout",function(d){
-        d3.select("#tooltip").classed("hidden",true);  
+        // d3.select("#tooltip").classed("hidden",true);  
         d3.selectAll('.dot')
               .filter(function(dot){
                   return (dot.EngineCylinders != d.EngineCylinders)
