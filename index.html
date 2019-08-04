@@ -83,14 +83,14 @@ var svg3 = d3.select("#scene3")
 //load data
 d3.csv("https://flunky.github.io/cars2017.csv", function(error, data) {
   if (error) throw error;
+  console.log(data[0]);
   data.forEach(function(d) {
-    d.Make = +d.Make;
-    d.Fuel = +d.Fuel;
+    //d.Make = +d.Make;
+    //d.Fuel = +d.Fuel;
     d.EngineCylinders = +d.EngineCylinders;
     d.AverageHighwayMPG = +d.AverageHighwayMPG;
     d.AverageCityMPG = +d.AverageCityMPG;
   });
-  console.log(d.Fuel);
   
 
 //scale data
@@ -115,7 +115,7 @@ svg1.append("g")
       .call(d3.axisLeft(yScale));
 
 //var fuel_size =  {Diesel:4, Electricity:6,Gasoline:8}
-//var fuel_size = d3.scaleOrdinal().domain(["Diesel","Electricity","Gasoline"]).range([8,12,16]);
+var fuel_color = d3.scaleOrdinal().domain(["Diesel","Electricity","Gasoline"]).range(["blue","orange","green"]);
 //domain(["Diesel","Electricity","Gasoline"]);
 //scene 2
 svg2.selectAll(".dot")
@@ -127,12 +127,7 @@ svg2.selectAll(".dot")
       .attr("r", 4)
       .attr("stroke-width", 1)
       .attr("stroke", "black")
-      .style("fill",function(d) {
-        console.log(d.Fuel)
-        if (d.Fuel == "Diesel"){return "orange"} 
-        else if (d.Fuel =="Electricity"){return "green"} 
-        else {return "red"}
-        });
+      .style("fill",function(d) { return fuel_color(d.Fuel);   });
 svg2.append("g")
       .attr("transform", "translate(0," + height + ")")
       .call(d3.axisBottom(xScale).ticks(5,d3.format("0.1s")));
