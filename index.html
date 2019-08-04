@@ -112,7 +112,7 @@ svg1.append("g")
 svg1.append("g")
       .call(d3.axisLeft(yScale));
 
-var fuel_col =  d3.scaleOrdinal(d3.schemeCategory10);
+var fuel_col =  {Diesel:"blue", Electricity:"orange",Gasoline:"black"}
 //domain(["Diesel","Electricity","Gasoline"]);
 //scene 2
 svg2.selectAll(".dot")
@@ -124,7 +124,7 @@ svg2.selectAll(".dot")
       .attr("r", 4)
       .attr("stroke-width", 1)
       .attr("stroke", "black")
-      .style("fill",function(d) {return fuel_col(d.Fuel);});
+      .style("fill",function(d) {return fuel_col[d.Fuel];});
 svg2.append("g")
       .attr("transform", "translate(0," + height + ")")
       .call(d3.axisBottom(xScale).ticks(5,d3.format("0.1s")));
